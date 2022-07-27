@@ -1,5 +1,7 @@
-const list = document.getElementsByClassName("items")[0];
+const list = document.getElementById("items");
+const duplicatesList = document.getElementById("duplicates");
 const count = document.getElementsByClassName("count")[0];
+const duplicatesCount = document.getElementsByClassName("duplicates-count")[0];
 const recent = document.getElementById("recent");
 const limit = 200;
 let offset = 0;
@@ -20,6 +22,7 @@ searchTerm.focus()
 function reset() {
   // Clear the list before new search
   list.innerHTML = null
+  duplicatesList.innerHTML = null
   offset = 0
   podcasts = []
 }
@@ -57,6 +60,7 @@ function fetchPodcasts() {
 
         fetchPodcasts();
       } else {
+        let duplicates = []
         const sortedPodcasts = podcasts
           .filter(podcast => {
             const unwantedGenres = [
@@ -99,11 +103,19 @@ function fetchPodcasts() {
         for (const podcast of sortedPodcasts) {
           addElement(podcast);
         }
+
+        if (duplicates.length > 0) {
+          duplicatesCount.innerHTML = duplicates.length + " possible duplicate" + (duplicates.length > 1 ? "s" : "")
+          
+          for (const podcast of duplicates) {
+            addDuplicate(podcast)
+          }
+        }
       }
     });
 }
 
-function addElement(podcast) {
+function createElement(podcast) {
   const newPodcast = document.createElement("a");
   newPodcast.setAttribute("class", "item");
   newPodcast.setAttribute("href", podcast.trackViewUrl);
@@ -135,5 +147,16 @@ function addElement(podcast) {
 
   newPodcast.appendChild(image);
   newPodcast.appendChild(metadata);
+
+  return newPodcast
+}
+
+function addElement(podcast) {
+  const newPodcast = createElement(podcast)
   list.appendChild(newPodcast);
+}
+
+function addDuplicate(podcast) {
+  const newDuplicate = createElement(podcast)
+  duplicatesList.appendChild(newDuplicate)
 }

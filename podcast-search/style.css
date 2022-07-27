@@ -40,6 +40,8 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-family: ui-rounded;
+  color: #333;
+  font-size: 16px;
 }
 
 .search-term:focus,
@@ -50,7 +52,6 @@ h1 {
 
 .search-term {
   transition: border-color 100ms ease-in-out;
-  font-size: 14px;
   padding-top: 10px;
 }
 
@@ -72,15 +73,18 @@ h1 {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
-	min-width: 120px;
+	min-width: 140px;
 	padding: 12px;
   font-weight: 600;
 }
 
 .search-button {
-  background-color: #efefef;
+  -moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+  background-color: #0495f6;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #0b79c3;
   border-radius: 8px;
   min-width: 90px;
   transition: 150ms ease-in-out;
@@ -89,18 +93,20 @@ h1 {
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 20px;
+  color: #fff;
+  font-size: 16px;
 }
 
 @media (min-width: 640px) {
   .search-button {
     margin: 2px;
+    font-size: 14px;
   }
 }
 
 .search-button:hover {
   background-color: #333;
   border-color: #000;
-  color: #fff;
   cursor: pointer;
 }
 
@@ -165,7 +171,7 @@ h1 {
   transform: rotate(45deg);
 }
 
-.count {
+.count, .duplicates-count {
   padding: 0 20px;
 }
 
