@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apple Podcast Search Enginge</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Apple Podcast Search Enginge</h1>
+    <div class="search">
+      <select name="type" class="search-type">
+        <option value="artistTerm">Station</option>
+        <option value="titleTerm">Title</option>
+        <option value="descriptionTerm" selected="selected">Description</option>
+        <option value="keywordsTerm">Keyword</option>
+      </select>
+      <select name="country" class="search-country">
+        <option value="SE" selected="selected">🇸🇪 Sverige</option>
+        <option value="GB">🇬🇧 UK</option>
+        <option value="ES">🇪🇸 España</option>
+        <option value="US">🇺🇸 US</option>
+      </select>
+      <input type="text" class="search-term" placeholder="Search for...">
+      <input type="button" class="search-button" value="Search">
+
+      <br>
+      <div class="search-recent">
+        <label class="search-recent-label">
+          Show only the past year
+          <input type="checkbox" name="recent" value="Recent" id="recent" class="search-recent-checkbox" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    <h2 class="count"></h2>
+    <div class="items"></div>
+  </body>
+  <script src="script.js"></script>
+</html>
