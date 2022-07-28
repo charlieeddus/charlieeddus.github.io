@@ -23,6 +23,7 @@ searchTerm.focus()
 function reset() {
   // Clear the list before new search
   list.innerHTML = null
+  anchors.innerHTML = null
   duplicatesList.innerHTML = null
   offset = 0
   podcasts = []
